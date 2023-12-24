@@ -1,5 +1,7 @@
 #include "Post.h"
-
+Post::Post(string body) {
+    this->body=body ;
+}
 string Post::getBody() const {
     return body;
 }
