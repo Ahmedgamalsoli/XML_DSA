@@ -12,9 +12,9 @@ private:
     vector<string> topics;
 
 public:
-    Post();
+    Post(string body);
 
-    ~Post();
+    
 
     string getBody() const;
     void setBody(const string& newBody);
