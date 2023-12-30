@@ -671,7 +671,7 @@ string Json_Minifying(const std::vector<User> users)
     return output;
 }
 
-string Json_Formatting(std::string& json) {
+string Json_Formatting(const std::string& json) {
     std::string formattedJson;
         int indentation = 0;
 
