@@ -10,6 +10,8 @@
 #include <cctype>
 #include <zlib.h>
 #include <queue>
+#include "errorCorrecting.h"
+#include "errorChecking.h"
 typedef unsigned long long ull;
 string Xml_Formatting(const std::string& xml)
 {
