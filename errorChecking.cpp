@@ -10,7 +10,6 @@
 using namespace  std ;
 typedef unsigned long long ull;
 
-
 bool errorChecking(const string& xmlFilePath,string & errorMessages,string &beginminus) {
     ifstream inputFile(xmlFilePath);
 
@@ -70,11 +69,12 @@ bool errorChecking(const string& xmlFilePath,string & errorMessages,string &begi
 
 
             }else{
-                errorMessages+=tagStack.top() ;
+                if(!tagStack.empty()){
+                 errorMessages+=tagStack.top() ;
                 tagStack.pop() ;
                 errorMessages+=tagStack.top() ;
                 errorMessages+="</users>"+ to_string(lineNumber) ;
-                tagStack.pop() ;
+                tagStack.pop() ;}
                 if(!tagStack.empty())
                     beginminus=tagStack.top() ;
 
