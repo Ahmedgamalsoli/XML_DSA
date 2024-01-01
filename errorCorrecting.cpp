@@ -12,7 +12,6 @@
 #include <cctype>
 using namespace  std;
 typedef unsigned long long ull;
-
 vector<string> errorCorrecting (const string& xmlFilePath,string &errorMessages,string &beginminus){
     fstream file(xmlFilePath, std::ios::in | std::ios::out);
     vector<string> lines;
@@ -37,7 +36,20 @@ vector<string> errorCorrecting (const string& xmlFilePath,string &errorMessages,
     string end ;
     int endline ;
     lines.push_back(" ");
-    lines[0]="<users>" ;
+    if(lines[0]!="<users>" ){
+        lines[0]="<users>" ;
+        file.close();
+        file.open(xmlFilePath, std::ios::out | std::ios::trunc);
+        while (lines.back()==" "){
+            lines.pop_back() ;
+        }
+
+        for (const auto &modifiedLine : lines) {
+
+            file << modifiedLine<<endl ;
+
+        }
+        return lines ;}
     if((errorMessages.find("<users>", 0)) != string::npos) {
         begin ="<users>";
         beginline=stoi(errorMessages.substr(7,errorMessages.find("</",0)-7 )) ;
@@ -166,7 +178,7 @@ vector<string> errorCorrecting (const string& xmlFilePath,string &errorMessages,
 
 
 
-    else if (begin=="<topic>"&&beginminus=="<topics>"){
+    else if (begin=="<topic>"){
         lines[beginline+1]="\t\t\t\t\t</topic>" ;
     }
 
@@ -237,7 +249,7 @@ vector<string> errorCorrecting (const string& xmlFilePath,string &errorMessages,
     }
 
 
-    else if ((begin=="<posts>" && beginminus=="<user>" &&  (lines[beginline-2].find("</name>",0)!=string::npos))
+    else if ((begin=="<posts>" &&  ( (lines[beginline-2].find("</name>",0)!=string::npos)||(lines[beginline-3].find("</id>",0)!=string::npos)||(lines[beginline-4].find("<user>",0)!=string::npos)))
              ||(beginminus=="<posts>" && begin!="<post>" && end=="</post>")){
         if((beginminus=="<posts>" && begin!="<post>" && end=="</post>")){beginline--;}
         lines[beginline]="\t\t\t<post>" ;
