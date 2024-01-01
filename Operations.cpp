@@ -1618,6 +1618,7 @@ string CorrectXML(const string& RealxmlFilePath){
     bool result=errorChecking(RealxmlFilePath,errorMessages,beginminus);
     while(result!=true ){
         lines=errorCorrecting(RealxmlFilePath,errorMessages,beginminus);
+        errorMessages="";
         result = errorChecking(RealxmlFilePath,errorMessages,beginminus);
     }
     string ans  ;
