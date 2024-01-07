@@ -761,11 +761,26 @@ std::string decompressJson(const std::string& Json) {
         }
     }
 
+    int indentation = 0;
+    string finaljson ;
 
-    string finaljson =Json_Formatting(decompressed_Json);
+    for (char c : decompressed_Json) {
+        if (c == '{' || c == '[') {
+            finaljson += c;
+            finaljson += '\n' + std::string(++indentation, '        ');
+        } else if (c == '}' || c == ']') {
+            finaljson += '\n' + std::string(--indentation, '        ') + c;
+        } else if (c == ',') {
+            finaljson += c;
+            finaljson += '\n' + std::string(indentation, '        ');
+        } else {
+            finaljson += c;
+        }
+    }
 
     return finaljson;
 }
+
 void generateDotFile(const std::vector<User>& users, const std::string& fileName) {
     std::ofstream dotFile(fileName);
 
