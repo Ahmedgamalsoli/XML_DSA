@@ -1,10 +1,10 @@
- <users>
+<users>
     <user>
-        <id>1</id>
-        <name>Ahmed Ali<name>                    
+        <id>5</id>
+        <name>Ahmed Ali
         <posts>
-            <post>                       
-                <body>                      
+            <post>
+                <body>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </body>
                 <topics>
@@ -17,7 +17,7 @@
                 </topics>
             </post>
             <post>
-                <body>
+               
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </body>
                 <topics>
@@ -44,7 +44,7 @@
                 <body>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </body>
-                <topics>                           <=== ERROR Corrected 
+                <topics>
                     <topic>
                         education
                     </topic>
