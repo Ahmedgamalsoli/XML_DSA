@@ -1,0 +1,23 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+     <file>icons\data-analytics.png</file>
+ </qresource>
+ <qresource>
+     <file>icons\diskette.png</file>
+ </qresource>
+ <qresource>
+     <file>icons\json-file.png</file>
+ </qresource>
+ <qresource>
+     <file>icons\redo.png</file>
+ </qresource>
+ <qresource>
+     <file>icons\undo.png</file>
+ </qresource>
+ <qresource>
+     <file>icons\search.png</file>
+ </qresource>
+ <qresource>
+     <file>icons\xml.png</file>
+ </qresource>
+ </RCC>
