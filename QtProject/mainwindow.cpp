@@ -1984,6 +1984,9 @@ string mutualFollowers (int ID1 , int ID2 ,vector<vector<int>> NetworkGraph){
             res+= "ID:" + to_string(i) + "  ";
         }
     }
+    if(mutual.empty()){
+        res += "No Mutual Friends";
+    }
     return res ;
 }
 
@@ -1992,7 +1995,7 @@ string suggestUsers(int ID,vector<vector<int>> NetworkGraph){
     string res;
     for (int i =0 ; i<NetworkGraph.size() ; i++){
         if(NetworkGraph[ID][i]==1){
-            for (int j =0 ; j< NetworkGraph.size() ;j++){
+            for (int j =0 ; j < NetworkGraph.size() ;j++){
                 if(NetworkGraph[i][j]==1 && NetworkGraph[ID][j]!=1 && (ID != j)){
                     suggested.push_back(j) ;
                     res+= "ID:" + to_string(j) + "  ";
@@ -2000,6 +2003,10 @@ string suggestUsers(int ID,vector<vector<int>> NetworkGraph){
             }
         }
     }
+    if(suggested.empty()){
+        res += "No Suggestion";
+    }
+
     return res ;
 }
 
@@ -2018,6 +2025,9 @@ string postSearch (string topic ,vector<User> users){
             }
         }
         i = 0;
+    }
+    if(result.empty()){
+        res += "Not Found";
     }
 
     return res ;
@@ -2461,7 +2471,7 @@ void MainWindow::on_most_influncer_clicked()
     SimpleXMLParser parser;
     vector<User> users = parser.parse(xmlData);
     int res = mostInfluencerUser(calculateIndegree(generateGraph(users)));
-    ui -> res->setText(QString::number(res));
+    ui -> res->setText("ID: "+QString::number(res));
 }
 
 
@@ -2470,7 +2480,7 @@ void MainWindow::on_Most_active_clicked()
     SimpleXMLParser parser;
     vector<User> users = parser.parse(xmlData);
     int r = most_Active_user(users);
-    ui -> res->setText(QString::number(r));
+    ui -> res->setText("ID: "+QString::number(r));
 }
 
 

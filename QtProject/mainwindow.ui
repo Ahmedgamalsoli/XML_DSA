@@ -673,6 +673,9 @@
     <property name="text">
      <string>Result</string>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
  </widget>
