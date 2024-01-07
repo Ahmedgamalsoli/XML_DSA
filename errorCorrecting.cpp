@@ -408,7 +408,8 @@ vector<string> errorCorrecting (const string& xmlFilePath,string &errorMessages,
              || (beginminus=="<user>" && begin!="<id>"  && end=="</id>" )
              || (beginminus=="<user>" && begin!="<name>"  && end=="</name>")
              || (beginminus=="<user>" && begin!="<posts>"  && end=="</posts>")
-             || ((beginminus=="<user>" && begin!="<followers>"  && end=="</followers>")) ){
+             || ((beginminus=="<user>" && begin!="<followers>"  && end=="</followers>")
+             ) ){
 
         if((beginminus=="<user>" && begin!="<id>"  && end=="</id>" )){beginline--;}
         if((beginminus=="<user>" && begin!="<name>"  && end=="</name>")){beginline-=2;}
@@ -452,7 +453,7 @@ vector<string> errorCorrecting (const string& xmlFilePath,string &errorMessages,
         lines[beginline]="\t\t<id>"+id+"</id>";
         beginline++;
         //**********************NAME******************************
-        char b =lines[beginline][2] ;
+        char b =lines[beginline][8] ;
         int startt=0;
         if(b!='<'){
             startt=2;
@@ -469,7 +470,7 @@ vector<string> errorCorrecting (const string& xmlFilePath,string &errorMessages,
             nn=lines[beginline].substr(startt,end-startt);
         }
 
-        lines[beginline]="\t\t<name>"+nn+"</name>";
+        lines[beginline]=("\t\t<name>"+nn+"</name>");
 
         beginline++;
 
@@ -636,9 +637,9 @@ vector<string> errorCorrecting (const string& xmlFilePath,string &errorMessages,
                 lines[beginline]="\t\t<id>"+id+"</id>";
                 beginline++;
                 //**********************NAME******************************
-                char b =lines[beginline][2] ;
+                char b =lines[beginline][8] ;
                 int startt=0;
-                if(c!='<'){
+                if(b!='<'){
                     startt=2;
                 }else{
                     startt=lines[beginline].find(">")+1 ;
@@ -799,3 +800,4 @@ vector<string> errorCorrecting (const string& xmlFilePath,string &errorMessages,
     }
     return lines ;
 }
+
