@@ -1633,7 +1633,7 @@ string CorrectXML(const string& RealxmlFilePath){
 
 vector<vector<int>> generateGraph(vector<User> users){
 
-    vector<vector<int>> NetworkGraph(10000) ;
+    vector<vector<int>> NetworkGraph(10000, vector<int>(10000));
 
     for ( auto user : users ) {
         for (auto follower : user.getFollowers()){
@@ -1694,7 +1694,8 @@ vector<int> suggestUsers(int ID,vector<vector<int>> NetworkGraph){
     for (int i =0 ; i<NetworkGraph.size() ; i++){
         if(NetworkGraph[ID][i]==1){
             for (int j =0 ; j< NetworkGraph.size() ;j++){
-                if(NetworkGraph[i][j]==1 && NetworkGraph[ID][j]!=1){
+                if(NetworkGraph[i][j]==1 && NetworkGraph[ID][j]!=1 && ID!=j){
+
                     suggested.push_back(j) ;
                 }
             }
@@ -1702,7 +1703,6 @@ vector<int> suggestUsers(int ID,vector<vector<int>> NetworkGraph){
     }
     return suggested ;
 }
-
 vector <pair<Post,int>> postSearch (string topic ,vector<User> users){
     vector <pair<Post,int>> result ;
     for(auto user : users ){
