@@ -1,0 +1,9 @@
+digraph UserGraph {
+  1 [label="Ahmed Ali"];
+  1 -> 2;
+  1 -> 3;
+  2 [label="Yasser Ahmed"];
+  2 -> 1;
+  3 [label="Mohamed Sherif"];
+  3 -> 1;
+}
